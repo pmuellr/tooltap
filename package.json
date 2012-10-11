@@ -1,47 +1,39 @@
 {
-  "name":              "tooltap",
-  "description":       "a library / framework / server for web browser tools",
-  "author":            "pmuellr",
-  "version":           "0.1.0",
-  "licenses":
-    [
-      {
-        "type":        "Tumbolia Public License"
-      }
-    ],
-  "engines":
+  "name": "tooltap",
+  "description": "a library / framework / server for web browser tools",
+  "author": "pmuellr",
+  "version": "0.1.0",
+  "licenses": [
     {
-      "node":          ">=0.8.0"
-    },
-  "directories":
-    {
-      "lib" :          "./lib"
-    },
-  "dependencies":
-    {
-      "express":       "3.x",
-      "nopt":          "2.x",
-      "websocket":     "0.x"
-    },
-  "devDependencies":
-    {
-      "supervisor":    "0.x"
-    },
-  "main" :             "./lib/tooltap.js",
-  "scripts":
-    {
-      "start":         "node ./lib/tooltap.js"
-    },
-  "bin":
-    {
-      "tooltap":       "./lib/tooltap.js"
-    },
-  "homepage":          "https://github.com/pmuellr/tooltap",
-  "bugs":              "https://github.com/pmuellr/tooltap/issues",
-
+      "type": "Tumbolia Public License"
+    }
+  ],
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "nopt": "2.x",
+    "websocket": "0.x",
+    "underscore": "1.x"
+  },
+  "devDependencies": {
+    "supervisor": "0.x"
+  },
+  "main": "./lib/tooltap.js",
+  "scripts": {
+    "start": "node ./lib/tooltap.js"
+  },
+  "bin": {
+    "tooltap": "./lib/tooltap.js"
+  },
+  "homepage": "https://github.com/pmuellr/tooltap",
+  "bugs": "https://github.com/pmuellr/tooltap/issues",
   "repository": {
-    "type":            "git",
-    "url":             "git://github.com/pmuellr/tooltap"
+    "type": "git",
+    "url": "git://github.com/pmuellr/tooltap"
   }
 }
-

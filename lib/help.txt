@@ -12,9 +12,23 @@ port is a tcp/ip port to run the web server on.
 
 options are one of the following:
 
-    -p --port      http port to use (default: 3000)
-    -h --help      print help
-    -v --verbose   run verbosely
-    --version      print the version
+    -p --port <number>          http port to use (default: 3000)
+    -b --bindip <ip|hostname>   ip / hostname to bind to (default: 127.0.0.1)
+    -h --https <config>         run as https instead of http
+    -m --multiuser              run in multi-user instead of single-user mode
+    -d --datadir <directory>    default data directory (writable!)
+    -k --packagedir <directory> default package directory (readable!)
+    -s --serverurl <url>        base URL to use for references to the server
+    -v --verbose                run verbosely
+    -z --debug                  comma-separated list of debug flags:
+             conn               display diagnostics for connections
+             message            display diagnostics for messages
+    -V --version                print the version then exit
+    -h --help                   print this help then exit
 
-tooltat data is stored in ~/.tooltap
+For the --bindip option, you may specify "ALL" to bind to all available
+network interfaces.
+
+For the --https option, <config> is the name of a JSON file, where the keys
+match the keys in node's tls.createServer() options parameter.  In the case
+of parameters that take strings or buffers (eg, key/cert), use a filename.
