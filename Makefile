@@ -30,13 +30,33 @@ vendor:
 	curl --output www/vendor/d3.v2.js      --progress-bar $(URL_D3)
 
 #-------------------------------------------------------------------------------
-OPENSSL_ARGS = "US\nNorth Carolina\nApex\nmuellerware.org\ndevelopment\nPatrick Mueller\npmuellr@yahoo.com\n\n\n"
+OPENSSL_ARGS = "US\nNorth Carolina\nApex\nexample.org\ntooltap development\ntooltap developer\ntooltap-dev@example.com\n\n\n"
 
 ssl-files:
-	openssl genrsa -out ssl.key.pem 1024
-	echo $(OPENSSL_ARGS) | openssl req -new -key ssl.key.pem -out ssl.certrequest.csr
-	openssl x509 -req -in ssl.certrequest.csr -signkey ssl.key.pem -out ssl.cert.pem
-	rm ssl.certrequest.csr
+
+	@echo ----------------------------------------------------------
+	@echo creating ssl.key.pem
+	@echo ----------------------------------------------------------
+	@openssl genrsa -out ssl.key.pem 1024
+
+	@echo ""
+	@echo ----------------------------------------------------------
+	@echo creating transient ssl.certrequest.pem
+	@echo ----------------------------------------------------------
+	@echo $(OPENSSL_ARGS) | openssl req -new -key ssl.key.pem -out ssl.certrequest.csr
+
+	@echo ""
+	@echo ----------------------------------------------------------
+	@echo creating transient ssl.cert.pem
+	@echo ----------------------------------------------------------
+	@openssl x509 -days 365 -req -in ssl.certrequest.csr -signkey ssl.key.pem -out ssl.cert.pem
+
+	@rm ssl.certrequest.csr
+
+	@echo ""
+	@echo ----------------------------------------------------------
+	@echo ssl.config.json
+	@echo ----------------------------------------------------------
 	@echo "{"	                        > ssl.config.json
 	@echo "\"key\":  \"ssl.key.pem\"," >> ssl.config.json
 	@echo "\"cert\": \"ssl.cert.pem\"" >> ssl.config.json
