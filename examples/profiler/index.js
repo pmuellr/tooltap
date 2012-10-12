@@ -1,18 +1,5 @@
 // Licensed under the Tumbolia Public License. See footer for details.
 
-var routes = exports
-
-//------------------------------------------------------------------------------
-routes.configure = function configure(app) {
-    app.get("/u/:userid",  dummy)
-    app.get("/p/:package", dummy)
-}
-
-//------------------------------------------------------------------------------
-function dummy(req, res, next) {
-    res.end("dummy for " + req.url)
-}
-
 //------------------------------------------------------------------------------
 // Copyright (c) 2012 Patrick Mueller
 //

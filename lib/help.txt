@@ -14,7 +14,7 @@ options are one of the following:
 
     -p --port <number>          http port to use (default: 3000)
     -b --bindip <ip|hostname>   ip / hostname to bind to (default: 127.0.0.1)
-    -h --https <config>         run as https instead of http
+    -h --https <json file>      run as https instead of http
     -m --multiuser              run in multi-user instead of single-user mode
     -d --datadir <directory>    default data directory (writable!)
     -k --packagedir <directory> default package directory (readable!)
@@ -23,6 +23,7 @@ options are one of the following:
     -z --debug                  comma-separated list of debug flags:
              conn               display diagnostics for connections
              message            display diagnostics for messages
+    -o --options <json file>    use options in specified file
     -V --version                print the version then exit
     -h --help                   print this help then exit
 
@@ -32,3 +33,6 @@ network interfaces.
 For the --https option, <config> is the name of a JSON file, where the keys
 match the keys in node's tls.createServer() options parameter.  In the case
 of parameters that take strings or buffers (eg, key/cert), use a filename.
+
+The default for --options is the file ~/.tooltap/config.json, where ~ is
+either the value of the HOME or USERPROFILE environment variable.

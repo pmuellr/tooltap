@@ -18,7 +18,9 @@
     "express": "3.x",
     "nopt": "2.x",
     "websocket": "0.x",
-    "underscore": "1.x"
+    "underscore": "1.x",
+    "q": "0.x",
+    "q-comm": "0.x"
   },
   "devDependencies": {
     "supervisor": "0.x"

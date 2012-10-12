@@ -1,16 +1,33 @@
 // Licensed under the Tumbolia Public License. See footer for details.
 
-var routes = exports
+var common = require("./agent-common")
+
+var prims = {
+    start:       profileStart,
+    stop:        profileStop,
+    isSupported: profileIsSupported
+}
+
+common.setup(prims)
 
 //------------------------------------------------------------------------------
-routes.configure = function configure(app) {
-    app.get("/u/:userid",  dummy)
-    app.get("/p/:package", dummy)
+function profileStart(name) {
+    console.profile(name)
 }
 
 //------------------------------------------------------------------------------
-function dummy(req, res, next) {
-    res.end("dummy for " + req.url)
+function profileStop() {
+    console.profileEnd()
+
+    return console.profiles[console.profiles.length-1]
+}
+
+//------------------------------------------------------------------------------
+function isSupported() {
+    if (!window.console)     return false
+    if (!console.profile)    return false
+    if (!console.profileEnd) return false
+    if (!console.profiles)   return false
 }
 
 //------------------------------------------------------------------------------

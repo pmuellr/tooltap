@@ -1,0 +1,13 @@
+{
+    "name": "profiler",
+    "main": "index.js",
+    "tooltap": {
+        "clients": [
+            "client"
+        ],
+        "agents": {
+            "browser": ["agent-browser.js"],
+            "node":    ["agent-node.js"]
+        }
+    }
+}

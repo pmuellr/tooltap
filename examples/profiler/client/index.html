@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>tooltap example: profiler</title>
+    <script src="/tooltap-client.js"></script>
+    <script src="/vendor/jquery.js"></script>
+    <script src="/vendor/d3.v2.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+<!-- ======================================================================= -->
+
+<h1>tooltap example: profiler</h1>
+
+<h2>Available Profilers</h2>
+<div id="profilers-container"></div>
+
+<!-- ======================================================================= -->
+
+<templates style="display:none">
+
+    <!-- =================================================================== -->
+
+    <template-profiler>
+        <h3 class="profiler-name"></h3>
+        <div class="profiler-info"></div>
+        <div class="profiler-buttons">
+            <button class="profiler-button-start">start</button>
+            <button class="profiler-button-stop">stop</button>
+        </div>
+        <div class="profiler-profiles"></div>
+    </template-profiler>
+
+    <!-- =================================================================== -->
+
+    <template-profile>
+        <h4 class="profile-name"></h4>
+        <div class="profile-hover-node">
+            <table>
+                <tr><td colspan=2 class="profile-hover-node-name">
+                <tr><td class="indent">
+                    <td>times called:
+                    <td class="profile-hover-node-called">
+                <tr><td class="indent">
+                    <td>self time:
+                    <td class="profile-hover-node-selftime">
+                <tr><td class="indent">
+                    <td>total time:
+                    <td class="profile-hover-node-totaltime">
+                <tr>
+            </table>
+        </div>
+        <div class="profile-chart"></div>
+    </template-profile>
+
+    <!-- =================================================================== -->
+
+</templates>
+
+<!-- ======================================================================= -->
+
+<style>
+</style>
+
+</body>
+
+</html>
