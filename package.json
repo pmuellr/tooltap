@@ -17,20 +17,19 @@
   "dependencies": {
     "express": "3.x",
     "nopt": "2.x",
-    "websocket": "0.x",
-    "underscore": "1.x",
     "q": "0.x",
-    "q-comm": "0.x"
+    "websocket": "0.x",
+    "underscore": "1.x"
   },
   "devDependencies": {
     "supervisor": "0.x"
   },
   "main": "./lib/tooltap.js",
   "scripts": {
-    "start": "node ./lib/tooltap.js"
+    "start": "node ./lib/tooltapd.js"
   },
   "bin": {
-    "tooltap": "./lib/tooltap.js"
+    "tooltapd": "./lib/tooltapd.js"
   },
   "homepage": "https://github.com/pmuellr/tooltap",
   "bugs": "https://github.com/pmuellr/tooltap/issues",

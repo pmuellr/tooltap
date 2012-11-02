@@ -1,12 +1,14 @@
 <!doctype html>
+<!-- Licensed under the Tumbolia Public License. See footer for details. -->
 
 <html>
 
 <head>
-    <title>tooltap example: profiler</title>
-    <script src="/tooltap-client.js"></script>
-    <script src="/vendor/jquery.js"></script>
-    <script src="/vendor/d3.v2.js"></script>
+<script src="/tooltap-client.js"></script>
+<script src="/vendor/jquery.js"></script>
+<script src="/vendor/d3.v2.js"></script>
+<script src="index.js"></script>
+<link  href="index.css" rel=stylesheet>
     <script src="index.js"></script>
 </head>
 
@@ -16,7 +18,10 @@
 
 <h1>tooltap example: profiler</h1>
 
-<h2>Available Profilers</h2>
+<button id="button-start" onclick="profileStart()">start</button>
+<button id="button-stop"  onclick="profileStop()" >stop</button>
+
+<h2>Available Profiles</h2>
 <div id="profilers-container"></div>
 
 <!-- ======================================================================= -->
@@ -25,20 +30,15 @@
 
     <!-- =================================================================== -->
 
-    <template-profiler>
-        <h3 class="profiler-name"></h3>
-        <div class="profiler-info"></div>
-        <div class="profiler-buttons">
-            <button class="profiler-button-start">start</button>
-            <button class="profiler-button-stop">stop</button>
-        </div>
-        <div class="profiler-profiles"></div>
-    </template-profiler>
+    <template-profile>
+        <h3 class="profile-name"></h3>
+        <div class="profile-info"></div>
+        <div class="profile-chart"></div>
+    </template-profile>
 
     <!-- =================================================================== -->
 
-    <template-profile>
-        <h4 class="profile-name"></h4>
+    <template-chart>
         <div class="profile-hover-node">
             <table>
                 <tr><td colspan=2 class="profile-hover-node-name">
@@ -55,7 +55,7 @@
             </table>
         </div>
         <div class="profile-chart"></div>
-    </template-profile>
+    </template-chart>
 
     <!-- =================================================================== -->
 
@@ -69,3 +69,19 @@
 </body>
 
 </html>
+
+<!--
+//==============================================================================
+// Copyright (c) 2012 Patrick Mueller
+//
+// Tumbolia Public License
+//
+// Copying and distribution of this file, with or without modification, are
+// permitted in any medium without royalty provided the copyright notice and
+// this notice are preserved.
+//
+// TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+//
+//   0. opan saurce LOL
+//==============================================================================
+-->

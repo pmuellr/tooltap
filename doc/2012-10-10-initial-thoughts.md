@@ -1,6 +1,8 @@
 tooltap - initial thoughts on generalizing web browser tools
 ============================================================
 
+2012-10-10 pmuelllr
+
 background
 ----------
 

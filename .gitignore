@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
 tmp
-ssl.cert.pem
-ssl.config.json
-ssl.key.pem
+ssl
+vendor

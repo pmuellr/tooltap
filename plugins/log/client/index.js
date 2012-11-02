@@ -1,47 +1,36 @@
 // Licensed under the Tumbolia Public License. See footer for details.
 
-var common = require("./agent-common")
+var tooltap = require("tooltap")
 
-var prims = {
-    start:       profileStart,
-    stop:        profileStop,
-    isSupported: profileIsSupported
-}
+var plugin  = tooltap.getCurrentPlugin()
+var service = plugin.service
+var $pre    = null
 
-common.setup(prims)
+$(document).ready(on_ready)
 
 //------------------------------------------------------------------------------
-var TimeStart
-var ProfileName
+function on_ready() {
+    $pre = $("#log")
 
-//------------------------------------------------------------------------------
-function profileStart(name) {
-    ProfileName = name
-    TimeStart   = Date.now()
-}
+    service.events.on("log", on_log)
 
-//------------------------------------------------------------------------------
-function profileStop() {
-    var elapsed = Date.now() - TimeStart
-
-    var nodes = {
-        title: ProfileName,
-        head: {
-            children:      [],
-            functionName:  "<unknown>",
-            lineNumber:    42,
-            numberOfCalls: 1,
-            selfTime:      elapsed,
-            totalTime:     elapsed
-        }
-    }
-
-    return nodes
+    tooltap.on("target-attached", on_target_attached)
+    tooltap.on("target-detached", on_target_detached)
 }
 
 //------------------------------------------------------------------------------
-function isSupported() {
-    return true
+function on_log(message) {
+    $pre.append(document.createTextNode(message))
+}
+
+//------------------------------------------------------------------------------
+function on_target_attached(target) {
+    on_log(">>> target attached: " + target.label)
+}
+
+//------------------------------------------------------------------------------
+function on_target_detached(target) {
+    on_log("<<< target detached: " + target.label)
 }
 
 //------------------------------------------------------------------------------

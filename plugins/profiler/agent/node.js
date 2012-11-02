@@ -1,52 +1,43 @@
 // Licensed under the Tumbolia Public License. See footer for details.
 
-var path = require("path")
+var common = require("./common")
+
+exports.tooltapInit = common.tooltapInit
+
+common.setup([start, stop, isSupported])
 
 //------------------------------------------------------------------------------
-var serviceName = path.basename(__dirname) // profiler
-
-//------------------------------------------------------------------------------
-var Started     = false
-var IsSupported = getIsSupported()
-var Prims
-
-exports.setup = function setup(prims) {
-    Prims = prims
-
-    tooltap.register(serviceName, start)
-    tooltap.register(serviceName, stop)
-    tooltap.register(serviceName, isSupported)
-}
+var TimeStart
+var ProfileName
 
 //------------------------------------------------------------------------------
 function start(name) {
-    if (!IsSupported) return false
-    if (Started)      return false
-
-    Started = true
-
-    if (name == null) {
-        name = new Date().toISOString().replace(":", "-")
-    }
-
-    Prims.start(name)
-
-    return true
+    ProfileName = name
+    TimeStart   = Date.now()
 }
 
 //------------------------------------------------------------------------------
 function stop() {
-    if (!IsSupported) return {}
-    if (!Started)     return {}
+    var elapsed = Date.now() - TimeStart
 
-    Started = false
+    var nodes = {
+        title: ProfileName,
+        head: {
+            children:      [],
+            functionName:  "<unknown>",
+            lineNumber:    1,
+            numberOfCalls: 1,
+            selfTime:      elapsed,
+            totalTime:     elapsed
+        }
+    }
 
-    return Prims.stop()
+    return nodes
 }
 
 //------------------------------------------------------------------------------
 function isSupported() {
-    return Prims.isSupported()
+    return true
 }
 
 //------------------------------------------------------------------------------

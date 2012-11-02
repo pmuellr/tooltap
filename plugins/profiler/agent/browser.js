@@ -1,29 +1,21 @@
 // Licensed under the Tumbolia Public License. See footer for details.
 
-var common = require("./agent-common")
-
-var prims = {
-    start:       profileStart,
-    stop:        profileStop,
-    isSupported: profileIsSupported
-}
-
-common.setup(prims)
+var browser = exports
 
 //------------------------------------------------------------------------------
-function profileStart(name) {
+exports.start = function start(name) {
     console.profile(name)
 }
 
 //------------------------------------------------------------------------------
-function profileStop() {
+exports.stop = function stop() {
     console.profileEnd()
 
     return console.profiles[console.profiles.length-1]
 }
 
 //------------------------------------------------------------------------------
-function isSupported() {
+exports.isSupported = function isSupported() {
     if (!window.console)     return false
     if (!console.profile)    return false
     if (!console.profileEnd) return false

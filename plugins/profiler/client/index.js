@@ -1,8 +1,16 @@
 // Licensed under the Tumbolia Public License. See footer for details.
 
-tooltap.serviceWatch("profiler", profilerWatcher)
+var Tooltap = null
+var Service = null
 
-var ProfilersMap  = {}
+window.tooltapInit = function function(tooltap, clientName) {
+    Tooltap = tooltap
+
+    Service = Tooltap.getRemoteService(clientName)
+}
+
+
+var ProfilesMap  = {}
 
 //------------------------------------------------------------------------------
 function profilerWatcher(action, service) {

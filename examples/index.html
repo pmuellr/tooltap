@@ -1,0 +1,86 @@
+<!doctype html>
+<!-- Licensed under the Tumbolia Public License. See footer for details. -->
+
+<!--
+//==============================================================================
+// This example is server up with URL:
+//
+//    http://[server:port]/x
+//
+// The demo is run with user "anon" and app "examples", so you can connect
+// to the demo from the tooltap client with the URL:
+//
+//    http://[server:port]/u/anon
+//
+// and look for application "examples"
+//==============================================================================
+-->
+
+<!-- ======================================================================= -->
+<html>
+<head>
+<script src="/v/jquery.js"></script>
+<script src="/u/anon/examples/tooltap-target.js"></script>
+</head>
+
+<!-- ======================================================================= -->
+<body>
+
+<button id="start-stop">start stuff</button>
+
+</body>
+
+<!-- ======================================================================= -->
+<script>
+var Interval = null
+var $Button  = null
+
+$(document).ready(on_ready)
+
+//------------------------------------------------------------------------------
+function on_ready() {
+    $Button = $("#start-stop")
+
+    $Button.click(on_start_stop)
+}
+
+//------------------------------------------------------------------------------
+function on_start_stop() {
+    Interval ? on_stop() : on_start()
+}
+
+//------------------------------------------------------------------------------
+function on_start() {
+    Interval = setInterval(on_tick,100)
+    $Button.text("stop stuff")
+}
+
+//------------------------------------------------------------------------------
+function on_stop() {
+    clearInterval(Interval)
+    Interval = null
+    $Button.text("start stuff")
+}
+
+//------------------------------------------------------------------------------
+function on_tick() {
+    console.log("in the ticker")
+}
+</script>
+</html>
+
+<!--
+//==============================================================================
+// Copyright (c) 2012 Patrick Mueller
+//
+// Tumbolia Public License
+//
+// Copying and distribution of this file, with or without modification, are
+// permitted in any medium without royalty provided the copyright notice and
+// this notice are preserved.
+//
+// TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+//
+//   0. opan saurce LOL
+//==============================================================================
+-->
