@@ -1,0 +1,7 @@
+{
+    "data-dir":     ".",
+    "verbose":      false,
+    "debug":        false,
+    "ssl-cert":     "./ssl/tooltap-cert.pem",
+    "ssl-key":      "./ssl/tooltap-key.pem"
+}

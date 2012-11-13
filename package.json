@@ -29,7 +29,8 @@
     "start": "node ./lib/tooltapd.js"
   },
   "bin": {
-    "tooltapd": "./lib/tooltapd.js"
+    "tooltapd": "./lib/tooltapd.js",
+    "tooltap": "./lib/tooltap.js"
   },
   "homepage": "https://github.com/pmuellr/tooltap",
   "bugs": "https://github.com/pmuellr/tooltap/issues",
