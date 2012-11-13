@@ -1,0 +1,15 @@
+{
+  "main": "index.html",
+  "name": "tooltap",
+  "description": "junk for your tools",
+  "version": "0.1.0",
+  "window": {
+    "title": "tooltap",
+    "icon": "images/icon_32x32.png",
+    "toolbar": false,
+    "resizable": true,
+    "position": "mouse"
+  },
+  "webkit": {
+    "plugin": true
+  }}

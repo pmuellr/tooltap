@@ -6,8 +6,12 @@
 main: help
 
 #-------------------------------------------------------------------------------
-watch:
+watch-server:
 	node_modules/.bin/node-supervisor -w lib -n error -- lib/tooltapd.js --verbose
+
+#-------------------------------------------------------------------------------
+watch-build:
+	wr "make build-app-osx-ia32" app lib plugins www
 
 #-------------------------------------------------------------------------------
 
@@ -111,7 +115,7 @@ ssl-files:
 #-------------------------------------------------------------------------------
 help:
 	@echo "This Makefile supports the following targets:"
-	@echo "   watch              -  run the server under node-supervisor watching lib"
+	@echo "   watch-server       -  run the server under node-supervisor watching lib"
 	@echo "   vendor             -  get the vendor files"
 	@echo "   ssl-files          -  create demo ssl files"
 	@echo "   build-app-osx-ia32 -  create demo ssl files"
